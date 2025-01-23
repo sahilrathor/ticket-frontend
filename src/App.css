@@ -1,0 +1,221 @@
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  padding: 20px;
+  color: white;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  background: linear-gradient(45deg, #ff00ff, #00ffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+main {
+  padding: 20px;
+}
+
+.game-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.game-card {
+  background-color: #2a2a2a;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.game-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.game-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.game-card p {
+  margin: 5px 0;
+}
+
+.game-card .price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #00ffff;
+}
+
+.game-card button {
+  background-color: #228cd4;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.game-card button:hover {
+  background-color: #cc00cc;
+}
+
+.ticket-form {
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #2a2a2a;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.ticket-form h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  background: linear-gradient(45deg, #ff00ff, #00ffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ticket-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ticket-form label {
+  font-weight: bold;
+}
+
+.ticket-form input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #444;
+  background-color: #333;
+  color: white;
+}
+
+.ticket-form button {
+  background-color: #00ffff;
+  color: #1a1a1a;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.ticket-form button:hover {
+  background-color: #00cccc;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.captured-photo {
+  max-width: 100%;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.camera-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.camera-container video {
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.camera-container button {
+  margin: 0.5rem 0;
+}
+
+.camera-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.captured-photo {
+  margin-top: 1rem;
+  max-width: 100%;
+  height: auto;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .App {
+    padding: 1rem;
+  }
+
+  .game-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
+  }
+
+  .game-card {
+    padding: 0.75rem;
+  }
+
+  .game-image {
+    height: 100px;
+  }
+
+  .game-title {
+    font-size: 0.9rem;
+  }
+
+  .game-price {
+    font-size: 1rem;
+  }
+
+  .buy-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+.camera-controls , .button-group{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.qr-code-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 10px;
+}
