@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Html5Qrcode } from 'html5-qrcode';
 import { BackendApi } from '../../services/BackendApi';
 import '../../styles/Admin.css';
+import { IoIosArrowRoundBack } from 'react-icons/io';
 
 interface TicketInfo {
   name: string;
@@ -23,6 +24,7 @@ const Admin: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [history, setHistory] = useState<TicketInfo[]>([]);
   const [totalHistory, setTotalHistory] = useState<number>(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     let html5QrCode: Html5Qrcode;
@@ -30,7 +32,7 @@ const Admin: React.FC = () => {
     const startScanning = async () => {
       try {
         html5QrCode = new Html5Qrcode("reader");
-        
+
         const config = {
           fps: 10,
           qrbox: { width: 250, height: 250 },
@@ -84,7 +86,7 @@ const Admin: React.FC = () => {
     setScanning(false);
     setLoading(true);
     setError(null);
-    
+
     try {
       const ticketInfo = await BackendApi.getTicketInfo(ticketId);
       setCurrentTicket({ ...ticketInfo, ticketId });
@@ -101,10 +103,10 @@ const Admin: React.FC = () => {
 
   const handleUseTicket = async () => {
     if (!currentTicket) return;
-    
+
     setLoading(true);
     setError(null);
-    
+
     try {
       await BackendApi.updateTicketCount(currentTicket.ticketId);
       const updatedTicket = await BackendApi.getTicketInfo(currentTicket.ticketId);
@@ -123,15 +125,20 @@ const Admin: React.FC = () => {
     setLoading(false);
   };
 
+  const onBack = () => {
+    navigate('/');
+  };
+
   return (
     <div className="admin-container">
-      <nav className="admin-nav">
-        <Link to="/" className="back-link">← Back to Games</Link>
-        <h1>Admin Dashboard</h1>
-      </nav>
+      <header className="App-header">
+        {/* <IoIosArrowRoundBack className="back-icon" onClick={onBack} /> */}
+        <h1 className="header-font leading-none" onDoubleClick={() => navigate('/')}>Admin Dashboard</h1>
+        <p className="header-font leading-none tracking-wide">Gesture Gaming</p>
+      </header>
 
       <div className="admin-controls">
-        <button 
+        <button
           onClick={() => {
             if (currentTicket) {
               resetScan();
@@ -158,9 +165,9 @@ const Admin: React.FC = () => {
           <div className="ticket-card">
             <div className="ticket-header">
               <div className="profile-image-container">
-                <img 
+                <img
                   src={currentTicket.user_base64}
-                  alt="Ticket holder" 
+                  alt="Ticket holder"
                   className="profile-image"
                 />
               </div>
@@ -190,7 +197,7 @@ const Admin: React.FC = () => {
                 </span>
               </div>
             </div>
-            <button 
+            <button
               onClick={handleUseTicket}
               className="use-ticket-button"
               disabled={currentTicket.isMaxed}
@@ -209,10 +216,10 @@ const Admin: React.FC = () => {
           {history.map((ticket) => (
             <div key={ticket.ticketId} className="history-item">
               <div className="history-profile">
-                <img 
-                  src={ticket.user_base64} 
+                <img
+                  src={ticket.user_base64}
                   alt={ticket.name}
-                  className="history-image" 
+                  className="history-image"
                 />
               </div>
               <div className="history-info">

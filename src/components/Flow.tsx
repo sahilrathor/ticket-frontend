@@ -3,6 +3,7 @@ import GameList from './GameList';
 import TicketForm from './TicketForm';
 import { Game } from '../types';
 import '../App.css';
+import { useNavigate } from 'react-router-dom';
 
 const games: Game[] = [
   { 
@@ -57,6 +58,7 @@ const games: Game[] = [
 ];
 
 const Flow: React.FC = () => {
+  const navigate = useNavigate();
   const [selectedGame, setSelectedGame] = useState<Game | null>(null);
 
   const handleBuyTicket = (game: Game) => {
@@ -66,7 +68,7 @@ const Flow: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <h1 className="header-font">Gesture Gaming</h1>
+        <h1 className="header-font" onDoubleClick={() => navigate('/admin')}>Gesture Gaming</h1>
       </header>
       <main>
         {!selectedGame ? (

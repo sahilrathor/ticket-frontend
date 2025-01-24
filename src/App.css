@@ -31,6 +31,11 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.App-header p {
+    color: #2d62ff;
+    font-size: 1.25rem;
+}
+
 h1 {
     margin: 0;
     font-size: 3.5rem;
@@ -238,7 +243,7 @@ main {
 }
 
 .camera-container video {
-    border: 2px solid #dddddd;
+    border: 1px solid #dddddd;
     margin: 0 auto;
     border-radius: 8px;
     margin-bottom: 1rem;
