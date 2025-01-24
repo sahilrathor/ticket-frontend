@@ -1,3 +1,11 @@
+// API service layer for backend communication
+// Endpoints:
+// - generateTicket: Creates new tickets
+// - getTicketInfo: Retrieves ticket details
+// - updateTicketCount: Updates usage count
+// - getHistory: Fetches ticket history
+// Base URL: https://ticket.rounak.site
+
 const BASE_URL = 'https://ticket.rounak.site';
 
 interface GenerateTicketRequest {

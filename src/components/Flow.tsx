@@ -66,7 +66,7 @@ const Flow: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Game Tickets</h1>
+        <h1 className="header-font">Gesture Gaming</h1>
       </header>
       <main>
         {!selectedGame ? (

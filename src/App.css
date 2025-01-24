@@ -1,221 +1,354 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+.header-font {
+    font-family: "Bebas Neue", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+*,
+html {
+    margin: 0;
+    padding: 0;
+}
+
 body {
-  font-family: "Arial", sans-serif;
-  background-color: #1a1a1a;
-  color: #ffffff;
-  margin: 0;
-  padding: 0;
+    font-family: "Arial", sans-serif;
+    background-color: #f5f5f5;
+    color: #333333;
+    margin: 0;
+    padding: 0;
 }
 
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .App-header {
-  background-color: #282c34;
-  padding: 20px;
-  color: white;
+    background-color: #ffffff;
+    padding: 15px;
+    color: #333333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-  margin: 0;
-  font-size: 2.5rem;
-  background: linear-gradient(45deg, #ff00ff, #00ffff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    margin: 0;
+    font-size: 3.5rem;
+    background: linear-gradient(45deg, #2d62ff, #5aadff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 main {
-  padding: 20px;
+    padding: 20px;
 }
 
 .game-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
 }
 
 .game-card {
-  background-color: #2a2a2a;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 0 auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
 .game-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 5px;
-  margin-bottom: 10px;
+    width: 95%;
+    /* height: 200px; */
+    aspect-ratio: 1/1;
+    /* object-fit: cover; */
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    overflow: hidden;
 }
 
 .game-card h2 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    color: #333333;
 }
 
 .game-card p {
-  margin: 5px 0;
+    font-size: 0.8rem;
+    font-weight: bold;
+    /* margin: 5px 0; */
+    color: #666666;
 }
 
 .game-card .price {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #00ffff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #228cd4;
 }
 
 .game-card button {
-  background-color: #228cd4;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+    background-color: #1677ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .game-card button:hover {
-  background-color: #cc00cc;
+    background-color: #4d92f2;
 }
 
+/* screen 2 */
 .ticket-form {
-  max-width: 500px;
-  margin: 0 auto;
-  background-color: #2a2a2a;
-  padding: 20px;
-  border-radius: 10px;
+    max-width: 500px;
+    margin: 2rem auto;
+    background-color: #ffffff;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+    position: relative;
 }
+
+.back-icon {
+    background-color: #f5f5f5;
+    font-size: 2rem;
+    color: #1677ff;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    border: 1px solid #1677ff;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+.back-icon:hover {
+    background-color: #1677ff;
+    color: #f5f5f5;
+}
+
+/* .ticket-form:hover {
+    transform: translateY(-5px);
+} */
 
 .ticket-form h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  background: linear-gradient(45deg, #ff00ff, #00ffff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    font-size: 2.5rem;
+    /* margin-bottom: 1.5rem; */
+    text-align: center;
+    /* background: linear-gradient(45deg, #2d62ff, #5aadff); */
+    /* -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+    color: #444444;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.ticket-form p {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #666666;
+    margin-bottom: 1rem;
+}
+
+.ticket-form p span {
+    color: #4a95ff;
+    font-weight: 600;
 }
 
 .ticket-form form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .ticket-form label {
-  font-weight: bold;
+    font-weight: 600;
+    color: #2d3748;
+    font-size: 1.1rem;
+    margin: 0 0 0.1rem 0.5rem;
+    display: block;
+    text-align: left;
 }
 
 .ticket-form input {
-  width: 100%;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #444;
-  background-color: #333;
-  color: white;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 2px solid #e2e8f0;
+    background-color: #f8fafc;
+    color: #2d3748;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.ticket-form input:focus {
+    outline: none;
+    border-color: #5aadff;
+    box-shadow: 0 0 0 3px rgba(90, 173, 255, 0.2);
 }
 
 .ticket-form button {
-  background-color: #00ffff;
-  color: #1a1a1a;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+    background-color: #1677ff;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
 }
 
 .ticket-form button:hover {
-  background-color: #00cccc;
+    background-color: #1d4ed8;
+    /* transform: translateY(-2px); */
+    box-shadow: 0 4px 12px rgba(45, 98, 255, 0.2);
+}
+
+.ticket-form button:active {
+    transform: translateY(0);
 }
 
 .form-actions {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
-.captured-photo {
-  max-width: 100%;
-  border-radius: 5px;
-  margin-top: 10px;
-}
+/* .captured-photo {
+    max-width: 100%;
+    margin: 0 auto;
+    border-radius: 5px;
+    margin-top: 10px;
+} */
+
 .camera-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* margin-top: 1rem; */
 }
 
 .camera-container video {
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  margin-bottom: 1rem;
+    border: 2px solid #dddddd;
+    margin: 0 auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    max-height: 300px;
 }
 
 .camera-container button {
-  margin: 0.5rem 0;
+    margin: 0.5rem 0;
 }
 
-.camera-button-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
-.captured-photo {
-  margin-top: 1rem;
-  max-width: 100%;
-  height: auto;
-  border: 2px solid #ccc;
-  border-radius: 8px;
+.preview-image {
+    /* margin-top: 1rem; */
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #dddddd;
+    border-radius: 8px;
 }
 
 @media (max-width: 768px) {
-  .App {
+    /* .App {
     padding: 1rem;
-  }
+  } */
 
-  .game-grid {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 1rem;
-  }
+    main {
+        padding: 0rem;
+    }
 
-  .game-card {
-    padding: 0.75rem;
-  }
+    .App-header {
+        /* background-color: #000; */
+        border-bottom: 1px solid #1677ffaa;
+    }
 
-  .game-image {
-    height: 100px;
-  }
+    .game-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 1rem;
+    }
 
-  .game-title {
-    font-size: 0.9rem;
-  }
+    .game-card {
+        padding: 0.75rem;
+    }
 
-  .game-price {
-    font-size: 1rem;
-  }
+    .game-image {
+        height: 100px;
+    }
 
-  .buy-button {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-  }
+    .game-title {
+        font-size: 0.9rem;
+    }
+
+    .game-price {
+        font-size: 1rem;
+    }
+
+    .buy-button {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .ticket-form {
+        padding: 3rem 2rem 2rem;
+        /* border-radius: 0px; */
+        /* margin: 0px auto; */
+    }
 }
 
-.camera-controls , .button-group{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
+@media (max-width: 480px) {
+
+    .game-card {
+        padding: 1rem auto;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .game-card img {
+        width: 150px;
+        height: 150px;
+        margin: 0;
+    }
+
+    .game-card h2 {
+        font-size: 1rem;
+    }
+
+    .game-card button {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .ticket-form {
+        padding: 1rem;
+        margin: 0 auto;
+        border-radius: 0px;
+    }
+}
+
+.camera-controls,
+.button-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 .qr-code-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 1rem;
-  gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    gap: 10px;
 }

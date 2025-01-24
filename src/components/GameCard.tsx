@@ -8,17 +8,25 @@ interface GameCardProps {
 }
 
 const GameCard: React.FC<GameCardProps> = ({ game, onBuyTicket }) => {
+
+  const handleBuyTicket = () => {
+    onBuyTicket(game);
+  };
+
   return (
-    <motion.div 
+    <motion.div
       className="game-card"
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
+      onClick={handleBuyTicket}
     >
       <img src={game.imageUrl || "/placeholder.svg"} alt={game.title} />
-      <h2>{game.title}</h2>
-      <p>{game.ticketType}</p>
-      <p className="price">₹{game.price}</p>
-      <button onClick={() => onBuyTicket(game)}>Buy Ticket</button>
+      <div className="game-card-content">
+        <h2>{game.title}</h2>
+        <p>{game.ticketType}</p>
+        <p className="price">₹{game.price}</p>
+        <button onClick={handleBuyTicket}>Buy Ticket</button>
+      </div>
     </motion.div>
   );
 };

@@ -3,6 +3,7 @@ import { QRCodeSVG } from 'qrcode.react';
 import Webcam from 'react-webcam';
 import { BackendApi } from '../services/BackendApi';
 import { Game } from '../types';
+import { IoIosArrowRoundBack } from "react-icons/io";
 
 interface TicketFormProps {
   game: Game;
@@ -70,9 +71,11 @@ const TicketForm: React.FC<TicketFormProps> = ({ game, onBack }) => {
 
   return (
     <div className="ticket-form">
+      {!downloadUrl ? <IoIosArrowRoundBack className="back-icon" onClick={onBack} /> : null}
       {!downloadUrl ? (
         <>
-          <h2>Book Ticket for {game.title}</h2>
+          <h2>Book Ticket</h2>
+          <p>Game: <span>{game.title}</span></p>
           <form onSubmit={handleSubmit}>
             <div className="form-group name-field">
               <label htmlFor="name">Name</label>
@@ -80,6 +83,7 @@ const TicketForm: React.FC<TicketFormProps> = ({ game, onBack }) => {
                 type="text"
                 id="name"
                 value={formData.name}
+                placeholder="Enter your name"
                 onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
                 required
               />
@@ -90,11 +94,12 @@ const TicketForm: React.FC<TicketFormProps> = ({ game, onBack }) => {
                 type="number"
                 id="price"
                 value={formData.price}
-                onChange={(e) => setFormData(prev => ({ 
-                  ...prev, 
+                placeholder="Enter game price"
+                onChange={(e) => setFormData(prev => ({
+                  ...prev,
                   price: Math.max(0, parseInt(e.target.value) || 0)
                 }))}
-                min="0"
+                min="10"
                 required
               />
             </div>
@@ -113,15 +118,15 @@ const TicketForm: React.FC<TicketFormProps> = ({ game, onBack }) => {
                     }}
                   />
                   <div className="camera-controls">
-                    <button 
-                      type="button" 
+                    <button
+                      type="button"
                       onClick={toggleCamera}
                       className="switch-camera-button"
                     >
                       Switch Camera
                     </button>
-                    <button 
-                      type="button" 
+                    <button
+                      type="button"
                       onClick={handleCapture}
                       className="capture-button"
                     >
@@ -133,22 +138,27 @@ const TicketForm: React.FC<TicketFormProps> = ({ game, onBack }) => {
                 <div className="photo-preview">
                   {formData.base64Image ? (
                     <>
-                      <img 
-                        src={formData.base64Image} 
-                        alt="Captured" 
-                        className="preview-image" 
+                      <img
+                        src={formData.base64Image}
+                        alt="Captured"
+                        className="preview-image"
                       />
-                      <button 
-                        type="button" 
-                        onClick={() => setShowCamera(true)}
-                        className="retake-button"
-                      >
-                        Retake Photo
-                      </button>
+                      {/* <div className=""> */}
+                        <button
+                          type="button"
+                          onClick={() => setShowCamera(true)}
+                          className="retake-button mr-1"
+                        >
+                          Retake Photo
+                        </button>
+                        <button type="submit" disabled={loading} className="submit-button ml-1">
+                          {loading ? 'Generating...' : 'Generate Ticket'}
+                        </button>
+                      {/* </div> */}
                     </>
                   ) : (
-                    <button 
-                      type="button" 
+                    <button
+                      type="button"
                       onClick={() => setShowCamera(true)}
                       className="start-camera-button"
                     >
@@ -160,12 +170,12 @@ const TicketForm: React.FC<TicketFormProps> = ({ game, onBack }) => {
             </div>
             {error && <div className="error-message">{error}</div>}
             <div className="button-group">
-              <button type="button" onClick={onBack} className="back-button">
+              {/* <button type="button" onClick={onBack} className="back-button">
                 Back
-              </button>
-              <button type="submit" disabled={loading} className="submit-button">
+              </button> */}
+              {/* <button type="submit" disabled={loading} className="submit-button">
                 {loading ? 'Generating...' : 'Generate Ticket'}
-              </button>
+              </button> */}
             </div>
           </form>
         </>
@@ -176,7 +186,7 @@ const TicketForm: React.FC<TicketFormProps> = ({ game, onBack }) => {
             <QRCodeSVG value={downloadUrl} size={256} />
           </div>
           <p className="instructions">
-            Scan this QR code to download your ticket
+            Scan this QR code from your mobile to download your ticket
           </p>
           <button onClick={onBack} className="back-button">
             Book Another Ticket
